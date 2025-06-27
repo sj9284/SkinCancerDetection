@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-Time Skin Cancer Detection</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-small">Logout</a>
+            </div>
+        </header>
+        
+        <main>
+            <div class="camera-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="camera-overlay" id="overlay">
+                    <div class="prediction-text" id="prediction">Prediction: None</div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Detection</button>
+            </div>
+            
+            <div class="history-container">
+                <h3>Detection History</h3>
+                <div class="history-box" id="history"></div>
+            </div>
+        </main>
+        
+        <div class="legend">
+            <h3>Class Legend</h3>
+            <ul>
+                <li><span class="legend-item">akiec</span> - Actinic Keratosis / Bowen's disease</li>
+                <li><span class="legend-item">bcc</span> - Basal Cell Carcinoma</li>
+                <li><span class="legend-item">bkl</span> - Benign Keratosis</li>
+                <li><span class="legend-item">df</span> - Dermatofibroma</li>
+                <li><span class="legend-item">mel</span> - Melanoma</li>
+                <li><span class="legend-item">nv</span> - Melanocytic Nevus</li>
+                <li><span class="legend-item">vasc</span> - Vascular Lesion</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/detection.js') }}"></script>
+</body>
+</html>
