@@ -7,7 +7,6 @@ import base64
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 from tensorflow.keras.models import load_model
 import tensorflow as tf
-
 # Define paths and constants
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, '../models')
